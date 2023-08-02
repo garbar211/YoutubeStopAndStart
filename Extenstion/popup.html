@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Video Embed Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 320px;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #embedLink {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    #embedLink strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #errorMessage {
+      color: red;
+      font-size: 14px;
+    }
+
+    /* Divider style */
+    .time-divider {
+      margin: 15px 0;
+      border-top: 1px solid #ccc;
+    }
+
+    /* Text below the button */
+    #madeBy {
+      margin-top: 10px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>YouTube Video Embed Converter</h1>
+    <form onsubmit="generateEmbedLink(); return false;">
+      <label for="youtubeUrl">Enter YouTube URL:</label>
+      <input type="text" id="youtubeUrl" required>
+
+      <label for="startHours">Start Time (hours):</label>
+      <input type="number" id="startHours" min="0">
+      <label for="startMinutes">Start Time (minutes):</label>
+      <input type="number" id="startMinutes" min="0" max="59">
+      <label for="startSeconds">Start Time (seconds):</label>
+      <input type="number" id="startSeconds" min="0" max="59">
+
+      <div class="time-divider"></div>
+
+      <label for="endHours">End Time (hours):</label>
+      <input type="number" id="endHours" min="0">
+      <label for="endMinutes">End Time (minutes):</label>
+      <input type="number" id="endMinutes" min="0" max="59">
+      <label for="endSeconds">End Time (seconds):</label>
+      <input type="number" id="endSeconds" min="0" max="59">
+
+      <button id="convertButton" type="submit">Convert to Embed Link</button>
+    </form>
+
+    <p id="errorMessage"></p>
+    <p id="embedLink"></p>
+  </div>
+
+  <p id="madeBy">Made by Garret hashbarger</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
